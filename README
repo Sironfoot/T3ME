@@ -1,0 +1,9 @@
+T3ME - Twitter Trending Topic Mashup Engine
+
+See this application running live at http://tweeverbs.com
+
+In open-source ASP.NET MVC application. Pulls down Tweets for a particular trending topic or hashtag, such as #proverbs or #chucknorrisfacts and allows voting and aggregating data (most popular tweeter, most votes etc.). Allows multiple applications for different hashtags, all running in the same web app, with different designs/layouts etc.
+
+Technologies used: ASP.NET MVC 2.0, .NET 4.0, NHibernate 3.0, Castle Windsor, SQL Server database, AutoMapper, Twitterizer, NUnit.
+
+*Warning:* this application is still at a very early stage, the code base isn't brilliant, there's not much unit testing, and I've taken onm a bit of 'technical debt'. Over time I hope to improve it.
