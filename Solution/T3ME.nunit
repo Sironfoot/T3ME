@@ -1,0 +1,9 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="T3ME.Business.Tests\bin\Debug\T3ME.Business.Tests.dll" />
+    <assembly path="T3ME.Domain.Tests\bin\Debug\T3ME.Domain.Tests.dll" />
+    <assembly path="MvcLibrary.Tests\bin\Debug\MvcLibrary.Tests.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>

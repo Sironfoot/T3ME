@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" Inherits="T3ME.Business.ViewPages.FrontEndMasterBase" %>
+
+<%@ Import Namespace="Twitterizer" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /> - <%: App.Title %></title>
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <link rel="shortcut icon" href="/StaticContent/Styles/<%: App.Id %>/favicon.ico" type="image/x-icon">
+
+    <%  foreach (var stylesheet in App.Stylesheets)
+        {
+            if (stylesheet.IE8)
+            { %>
+
+                <!--[if lte IE 8]>
+                <link href="/StaticContent/Styles/<%: App.Id %>/<%: stylesheet.Filename %>.css" rel="stylesheet"
+                    type="text/css" <%: stylesheet.IsPrint ? "media=\"print\"" : "" %> />
+                <![endif]-->
+    <%      }
+            else
+            { %>
+
+                <link href="/StaticContent/Styles/<%: App.Id %>/<%: stylesheet.Filename %>.css" rel="stylesheet"
+                    type="text/css" <%: stylesheet.IsPrint ? "media=\"print\"" : "" %> />
+
+    <%      }
+        } %>
+
+    <link rel="alternate" type="application/rss+xml" title="<%: Html.RssFeedTitle() %>" href="<%= Html.RssFeedLink() %>" />
+
+    <script src="/StaticContent/Scripts/jquery-1.4.3.min.js"></script>
+    <script src="/StaticContent/Scripts/jquery-ui-1.8.8.custom.min.js"></script>
+    
+
+    <!--[if lte IE 8]>
+        <script src="/StaticContent/Scripts/html5shiv.js"></script>
+        <script src="/StaticContent/Scripts/selectivizr.js"></script>
+    <![endif]-->
+
+    <%
+        int currentPage = 1;
+        RouteBuilder route = Html.CurrentRoute();
+        if (route.ContainsKey("page"))
+        {
+            currentPage = Int32.TryParse(route["page"].ToString(), out currentPage) ? currentPage.AtLeast(1) : 1;
+        }
+
+        string searchQuery = Url.Encode((string)route["search"]);
+        bool runAjaxNewTweetsCheck = false;
+
+        T3ME.Domain.Queries.SearchOrder? searchOrder = null;
+        if (route.Controller == "Display" && route.Action != "Status")
+        {
+            searchOrder = (T3ME.Domain.Queries.SearchOrder)Enum.Parse(typeof(T3ME.Domain.Queries.SearchOrder), route.Action);
+            runAjaxNewTweetsCheck = true;
+        }
+    %>
+    
+    <script>
+    //<![CDATA[
+        var pagingUrl = '<%: Html.CurrentRoute().AddRouteValue("format", DisplayFormat.HtmlSnippet).AddRouteValue("page", "xxx") %>';
+        var recordsPerPage = <%: MagicValues.RecordsPerPage %>;
+        var currentPage = <%: currentPage %>;
+
+        var runAjaxNewTweetsCheck = <%: runAjaxNewTweetsCheck %>;
+        var searchQuery = '<%: searchQuery %>';
+        var searchOrder = '<%: searchOrder %>';
+        
+    //]]>
+    </script>
+
+    <script src="/StaticContent/Scripts/main.js"></script>
+
+    <% if (!String.IsNullOrWhiteSpace(App.GoogleAnalyticsCode)) { %>
+    <script>
+    //<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '<%: App.GoogleAnalyticsCode %>']);
+        _gaq.push(['_trackPageview']);
+
+        (function ()
+        {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    //]]>
+    </script>
+    <% } %>
+</head>
+
+<body class="<%: Html.CurrentRoute().Controller.ToLower() %> <%: Html.CurrentRoute().Action.ToLower() %>">
+
+    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+</body>
+</html>

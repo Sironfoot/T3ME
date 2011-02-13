@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="T3ME.Domain" namespace="T3ME.Domain.Models">
+
+    <class name="Tweet" table="Tweets">
+        <id name="Id" type="Int64" unsaved-value="0">
+            <generator class="identity" />
+        </id>
+
+        <property name="TwitterId" not-null="true" type="Int64" />
+        <property name="Message" not-null="true" type="String" length="200" />
+        <property name="PostedDate" not-null="true" type="DateTime" />
+        <property name="Location" not-null="false" type="String" length="100" />
+        
+        <property name="FirstVoteCast" not-null="false" type="DateTime" />
+
+        <component name="Device" class="T3ME.Domain.Models.Components.Device, T3ME.Domain">
+            <property name="Name" column="DeviceName" not-null="true" type="String" length="200" />
+            <property name="Url" column="DeviceUrl" not-null="true" type="String" length="200" />
+        </component>
+
+        <set name="Votes" inverse="true" cascade="all-delete-orphan" lazy="extra">
+            <key column="TweetId" />
+            <one-to-many class="T3ME.Domain.Models.Vote, T3ME.Domain"/>
+        </set>
+
+        <set name="Tags" inverse="true" cascade="all-delete-orphan" lazy="extra">
+            <key column="TweetId" />
+            <one-to-many class="T3ME.Domain.Models.Tag, T3ME.Domain"/>
+        </set>
+
+        <property name="GeoShapeType" column="GeoShapeType" not-null="false" type="T3ME.Domain.Models.Enums.GeoShape, T3ME.Domain" />
+
+        <set name="Coordinates" inverse="true" cascade="all-delete-orphan" lazy="extra">
+            <key column="TweetId" />
+            <one-to-many class="T3ME.Domain.Models.Coordinate, T3ME.Domain" />
+        </set>
+
+        <many-to-one name="App" column="ApplicationId" class="T3ME.Domain.Models.Application, T3ME.Domain" not-null="true" />
+        <many-to-one name="Tweeter" column="TweeterId" class="T3ME.Domain.Models.Tweeter, T3ME.Domain" not-null="true" />
+        <many-to-one name="Language" column="LanguageId" class="T3ME.Domain.Models.Language, T3ME.Domain" not-null="false" />
+        
+    </class>
+    
+</hibernate-mapping>

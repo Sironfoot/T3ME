@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Shared/Top.Master" Inherits="T3ME.Business.ViewPages.FrontEndMasterBase" %>
+
+<%@ Import Namespace="Twitterizer" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <header>
+        <hgroup>
+            <h1><a href="/"><%: App.Title %></a></h1>
+            <h2><%: App.SubTitle%></h2>
+        </hgroup>
+
+        <p class="blurb">
+            <%: App.Blurb %>
+        </p>
+            
+        <% Html.RenderPartial("TweeterPanel", MasterView.TweeterPanel, new ViewDataDictionary()); %>
+       
+    </header>
+
+    <div id="Middle">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+
+    <footer>
+        <div>
+            <small>&copy; 2010 <%: App.Title%>  - Website by <a href="http://www.dominicpettifer.co.uk">Dominic Pettifer</a></small>
+
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/about/legal">Legal</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</asp:Content>

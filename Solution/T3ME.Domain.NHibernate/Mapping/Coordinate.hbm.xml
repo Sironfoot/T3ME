@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="T3ME.Domain" namespace="T3ME.Domain.Models">
+
+    <class name="Coordinate" table="Coordinates">
+        <id name="Id" type="Int64" unsaved-value="0">
+            <generator class="identity" />
+        </id>
+
+        <property name="Longitude" not-null="true" type="Double" />
+        <property name="Latitude" not-null="true" type="Double" />
+
+        <many-to-one name="Tweet" column="TweetId" class="T3ME.Domain.Models.Tweet, T3ME.Domain" not-null="true" />
+        
+    </class>
+    
+</hibernate-mapping>

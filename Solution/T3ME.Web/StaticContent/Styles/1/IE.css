@@ -1,0 +1,45 @@
+﻿
+#SideBar > div
+{
+    box-shadow: none;
+    behavior: url(/StaticContent/Scripts/PIE.htc);
+}
+
+
+body > header .twitterUser.signedIn
+{
+    box-shadow: none;
+    behavior: url(/StaticContent/Scripts/PIE.htc);
+}
+
+
+#Content
+{
+    box-shadow: none;
+    behavior: url(/StaticContent/Scripts/PIE.htc);
+}
+
+.mainNav li strong,
+.mainNav li a
+{
+    behavior: url(/StaticContent/Scripts/PIE.htc);
+}
+
+
+#TweetDetail
+{
+    box-shadow: none;
+    behavior: url(/StaticContent/Scripts/PIE.htc);
+}
+
+body > footer > div
+{
+    box-shadow: none;
+    behavior: url(/StaticContent/Scripts/PIE.htc);
+}
+
+body.display.status > footer > div
+{
+    box-shadow: none;
+    behavior: url(/StaticContent/Scripts/PIE.htc);
+}

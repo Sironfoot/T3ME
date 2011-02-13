@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Shared/Main.Master" Inherits="T3ME.Business.ViewPages.FrontEndMasterBase" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <nav class="mainNav">
+            
+        <% Html.SiteMapMenu()
+                .FlattenRoot()
+                .SetSelectedNodeCssClass("selected")
+                .SetMaxDepth(1)
+                .Render(); %>
+
+    </nav>
+
+    <div id="Content">
+
+        <nav class="breadcrumbs">
+            <% Html.Breadcrumbs().Render(); %>
+        </nav>
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+    </div>
+
+    <aside id="SideBar">
+        <div class="socialLinks">
+            <h2>Syndication &amp; Social</h2>
+
+            <ul>
+                <li class="twitter"><a href="http://twitter.com/<%: App.Account.ScreenName %>">Follow Us<span class="hide"> on Twitter</span></a></li>
+                <li class="rss"><a href="<%: Html.RssFeedLink() %>"><%: Html.RssFeedTitle() %><span class="hide">(RSS feed)</span></a></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <h2>Search for <%: App.Noun.Plural.CapitaliseFirstLetter()%></h2>
+
+            <form method="get" action="">
+                <fieldset>
+                    <legend>Search for <%: App.Noun.Plural.ToLower()%></legend>
+                    <div class="formRow">
+                        <input type="search" name="search" value="<%: Html.CurrentRoute()["search"] %>" />
+                    </div>
+
+                    <div class="formButtons">
+                        <input type="submit" value="Search" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="language">
+            <h2>Filter by Language</h2>
+
+            <% Html.RenderPartial("LanguageSelectForm", MasterView.Languages); %>
+        </div>
+
+        <div class="tagCloud">
+            <h2>Popular Hashtags</h2>
+
+            <% if (MasterView.TagCloud.Tags.Count > 0)
+               { %>
+
+                <ul>
+
+                <% foreach (var tag in MasterView.TagCloud.Tags)
+                   { %>
+
+                    <li class="<%: tag.Strenth %>"><a href="/?search=%23<%: tag.Name %>"><%: tag.Name%></a></li>
+
+                <% } %>
+
+                </ul>
+
+            <% } else { %>
+
+                <p>No Hashtags found</p>
+
+               <% } %>
+        </div>
+
+        <div class="bannerAds">
+            <h2><%: App.Noun.Singular.CapitaliseFirstLetter() %> Related Products</h2>
+
+            <iframe src="http://rcm.amazon.com/e/cm?lt1=_blank&bc1=EEEFE4&IS2=1&bg1=EEEFE4&fc1=000000&lc1=0000FF&t=tweeverbs-20&o=1&p=8&l=as1&m=amazon&f=ifr&asins=1576836754" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+            <iframe src="http://rcm.amazon.com/e/cm?lt1=_blank&bc1=EEEFE4&IS2=1&bg1=EEEFE4&fc1=000000&lc1=0000FF&t=tweeverbs-20&o=1&p=8&l=as1&m=amazon&f=ifr&asins=0877849420" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+            <iframe src="http://rcm.amazon.com/e/cm?lt1=_blank&bc1=EEEFE4&IS2=1&bg1=EEEFE4&fc1=000000&lc1=0000FF&t=tweeverbs-20&o=1&p=8&l=as1&m=amazon&f=ifr&asins=0891093486" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+        </div>
+    </aside>
+
+</asp:Content>

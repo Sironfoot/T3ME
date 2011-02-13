@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="T3ME.Domain" namespace="T3ME.Domain.Models">
+
+    <class name="Application" table="Applications">
+        <id name="Id" type="Int64" unsaved-value="0">
+            <generator class="identity" />
+        </id>
+
+        <property name="Title" not-null="true" type="String" length="100" />
+        <property name="SubTitle" not-null="true" type="String" length="100" />
+        <property name="Blurb" not-null="true" type="String" length="100" />
+        <property name="Url" not-null="true" type="String" length="100" />
+
+        <component name="Noun" class="T3ME.Domain.Models.Components.Noun, T3ME.Domain">
+            <property name="Singular" column="NounSingular" not-null="true" type="String" length="30" />
+            <property name="Plural" column="NounPlural" not-null="true" type="String" length="30" />
+        </component>
+        
+        <property name="ConsumerKey" not-null="true" type="String" length="50" />
+        <property name="ConsumerSecret" not-null="true" type="String" length="50" />
+        <property name="GoogleAnalyticsCode" not-null="false" type="String" length="20" />
+
+        <component name="Account" class="T3ME.Domain.Models.Components.TwitterAccount, T3ME.Domain">
+            <property name="UserId" column="AccountId" not-null="true" type="Int64" />
+            <property name="ScreenName" column="AccountScreenName" not-null="true" type="String" length="50" />
+            <property name="AccessToken" column="AccountAccessToken" not-null="true" type="String" length="50" />
+            <property name="TokenSecret" column="AccountTokenSecret" not-null="true" type="String" length="50" />
+        </component>
+        
+        <property name="CreatedDate" not-null="true" type="DateTime" />
+
+        <set name="HashTags" lazy="extra" table="HashTags" cascade="all-delete-orphan">
+            <key column="ApplicationId" />
+            <element type="String" column="HashTag" not-null="true" />
+        </set>
+
+        <set name="NotFoundTweets" lazy="true" table="NotFoundTweets" cascade="all-delete-orphan">
+            <key column="ApplicationId" />
+            <element type="String" column="Message" not-null="true" />
+        </set>
+
+        <set name="Tweets" inverse="true" cascade="all-delete-orphan" lazy="extra">
+            <key column="ApplicationId" />
+            <one-to-many class="T3ME.Domain.Models.Tweet, T3ME.Domain" />
+        </set>
+
+        <set name="Stylesheets" inverse="true" cascade="all-delete-orphan" lazy="extra" order-by="OrderIndex">
+            <key column="ApplicationId" />
+            <one-to-many class="T3ME.Domain.Models.Stylesheet, T3ME.Domain" />
+        </set>
+    </class>
+    
+</hibernate-mapping>

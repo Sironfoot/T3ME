@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-2.0">
+
+    <mvcSiteMapNode title="Latest" controller="Display" action="Latest">
+        <mvcSiteMapNode title="Recently Voted" controller="Display" action="RecentlyVoted" />
+        <mvcSiteMapNode title="Top Rated" controller="Display" action="TopRated" />
+        <mvcSiteMapNode title="Stats" controller="Stats" action="Index" />
+        <mvcSiteMapNode title="About" controller="About" action="Index">
+            <mvcSiteMapNode title="Legal" controller="About" action="Legal" />
+        </mvcSiteMapNode>
+    </mvcSiteMapNode>
+
+</mvcSiteMap>

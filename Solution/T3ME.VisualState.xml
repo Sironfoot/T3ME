@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]C:\Development\T3ME\Solution\T3ME\T3ME.nunit</TopNode>
+  <SelectedNode>[0-1057]MvcLibrary.Tests.AutoMapper.AdvancedTypeConverterTests.ConvertCore_ShouldBeCalled_WithValidType</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]C:\Development\T3ME\Solution\T3ME\T3ME.nunit" Expanded="true" />
+    <Node UniqueName="[0-1027]C:\Development\T3ME\Solution\T3ME\T3ME.Business.Tests\bin\Debug\T3ME.Business.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1028]T3ME" Expanded="true" />
+    <Node UniqueName="[0-1029]T3ME.Business" Expanded="true" />
+    <Node UniqueName="[0-1030]T3ME.Business.Tests" Expanded="true" />
+    <Node UniqueName="[0-1031]T3ME.Business.Tests.Utils" Expanded="true" />
+    <Node UniqueName="[0-1001]T3ME.Business.Tests.Utils.T3meUtilsTests" Expanded="true" />
+    <Node UniqueName="[0-1045]C:\Development\T3ME\Solution\T3ME\T3ME.Domain.Tests\bin\Debug\T3ME.Domain.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1046]T3ME" Expanded="true" />
+    <Node UniqueName="[0-1047]T3ME.Domain" Expanded="true" />
+    <Node UniqueName="[0-1048]T3ME.Domain.Tests" Expanded="true" />
+    <Node UniqueName="[0-1049]T3ME.Domain.Tests.Models" Expanded="true" />
+    <Node UniqueName="[0-1032]T3ME.Domain.Tests.Models.TweetTests" Expanded="true" />
+    <Node UniqueName="[0-1058]C:\Development\T3ME\Solution\T3ME\MvcLibrary.Tests\bin\Debug\MvcLibrary.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1059]MvcLibrary" Expanded="true" />
+    <Node UniqueName="[0-1060]MvcLibrary.Tests" Expanded="true" />
+    <Node UniqueName="[0-1062]MvcLibrary.Tests.AutoMapper" Expanded="true" />
+    <Node UniqueName="[0-1056]MvcLibrary.Tests.AutoMapper.AdvancedTypeConverterTests" Expanded="true" />
+    <Node UniqueName="[0-1061]MvcLibrary.Tests.Utils" Expanded="true" />
+    <Node UniqueName="[0-1050]MvcLibrary.Tests.Utils.ListExtensionsTests" Expanded="true" />
+  </Nodes>
+</VisualState>

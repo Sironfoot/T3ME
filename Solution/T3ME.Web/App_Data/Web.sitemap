@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+
+    <siteMapNode title="Latest" controller="Display" action="Latest">
+        <siteMapNode title="Recently Voted" controller="Display" action="Recent" />
+        <siteMapNode title="Top Rated" controller="Display" action="TopRated" />
+        <siteMapNode title="About" controller="About" action="Index" />
+    </siteMapNode>
+
+</siteMap>

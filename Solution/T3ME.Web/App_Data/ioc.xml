@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+    <components>
+        <!-- NHibernate Session Provider -->
+        <component id="SessionProviderFactory"
+            service="MvcLibrary.NHibernate.SessionManagement.ISessionProviderFactory, MvcLibrary"
+            type="MvcLibrary.NHibernate.SessionManagement.Impl.WebHybridSessionProviderFactory, MvcLibrary"
+            lifestyle="Transient"/>
+        <!-- End of NHibernate Session Provider -->
+
+        <!-- Repositories -->
+        <component id="ApplicationRepository"
+            service="T3ME.Domain.Repositories.IApplicationRepository, T3ME.Domain"
+            type="T3ME.Domain.NHibernate.Repositories.ApplicationRepository, T3ME.Domain.NHibernate"
+            lifestyle="Transient" />
+
+        <component id="TweetRepository"
+            service="T3ME.Domain.Repositories.ITweetRepository, T3ME.Domain"
+            type="T3ME.Domain.NHibernate.Repositories.TweetRepository, T3ME.Domain.NHibernate"
+            lifestyle="Transient" />
+
+        <component id="TweeterRepository"
+            service="T3ME.Domain.Repositories.ITweeterRepository, T3ME.Domain"
+            type="T3ME.Domain.NHibernate.Repositories.TweeterRepository, T3ME.Domain.NHibernate"
+            lifestyle="Transient" />
+
+        <component id="LanguageRepository"
+            service="T3ME.Domain.Repositories.ILanguageRepository, T3ME.Domain"
+            type="T3ME.Domain.NHibernate.Repositories.LanguageRepository, T3ME.Domain.NHibernate"
+            lifestyle="Transient" />
+        <!-- End of Repositories -->
+    </components>
+</configuration>

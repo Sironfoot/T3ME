@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C0BE64C-DD3F-4665-B73E-8F84A5194262}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>T3ME.Business</RootNamespace>
+    <AssemblyName>T3ME.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\External\AutoMapper\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Castle\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\NHibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Twitterizer\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteDebug">
+      <HintPath>..\External\Logging\RouteDebug.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Twitterizer.Data, Version=1.0.3885.3461, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Twitterizer\Twitterizer.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitterizer2, Version=2.2.2.3460, Culture=neutral, PublicKeyToken=69d1469eac671567, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\External\Twitterizer\Twitterizer2.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitterizer2.Asynchronous">
+      <HintPath>..\External\Twitterizer\Twitterizer2.Asynchronous.dll</HintPath>
+    </Reference>
+    <Reference Include="Twitterizer2.Streaming">
+      <HintPath>..\External\Twitterizer\Twitterizer2.Streaming.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackgroundTasks\TrawlTweets.cs" />
+    <Compile Include="Controllers\MasterController.cs" />
+    <Compile Include="Mapping\TwitterUserToTweeterTypeConverter.cs" />
+    <Compile Include="Mapping\TwitterUserTweeterComparer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartUp\3. RegisterIocContainer.cs" />
+    <Compile Include="StartUp\2. RegisterRoutes.cs" />
+    <Compile Include="StartUp\1. RegisterAreas.cs" />
+    <Compile Include="StartUp\5. StartBackgroundTasks.cs" />
+    <Compile Include="StartUp\4. ConfigureAutoMapper.cs" />
+    <Compile Include="Utils\DisplayFormat.cs" />
+    <Compile Include="Utils\DisplayOrder.cs" />
+    <Compile Include="Utils\MagicValues.cs" />
+    <Compile Include="Utils\T3meHtmlExtensions.cs" />
+    <Compile Include="Utils\T3meUtils.cs" />
+    <Compile Include="Utils\TwitterUrlHelper.cs" />
+    <Compile Include="ViewModels\Forms\LanguageSelectForm.cs" />
+    <Compile Include="ViewModels\MasterFrontEndView.cs" />
+    <Compile Include="ViewModels\StatsView.cs" />
+    <Compile Include="ViewModels\TagCloudView.cs" />
+    <Compile Include="ViewModels\TagView.cs" />
+    <Compile Include="ViewModels\TweeterStatsView.cs" />
+    <Compile Include="ViewModels\TweeterView.cs" />
+    <Compile Include="ViewModels\TweetFullRecordView.cs" />
+    <Compile Include="ViewModels\TweetView.cs" />
+    <Compile Include="ViewModels\TweetViewList.cs" />
+    <Compile Include="ViewPages\FrontEndMasterBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPages\T3meViewPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPages\ViewUserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcLibrary\MvcLibrary.csproj">
+      <Project>{3465F09F-A106-4C87-A17E-4804E6BE2F34}</Project>
+      <Name>MvcLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\T3ME.Domain\T3ME.Domain.csproj">
+      <Project>{2AAC012B-7B05-41ED-8D55-1179F4A0346B}</Project>
+      <Name>T3ME.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
