@@ -155,15 +155,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="StaticContent\Scripts\jquery.validate.js" />
-    <Content Include="StaticContent\Scripts\jquery.validate.min.js" />
-    <Content Include="StaticContent\Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="StaticContent\Scripts\MicrosoftAjax.js" />
-    <Content Include="StaticContent\Scripts\MicrosoftAjax.debug.js" />
-    <Content Include="StaticContent\Scripts\MicrosoftMvcAjax.js" />
-    <Content Include="StaticContent\Scripts\MicrosoftMvcAjax.debug.js" />
-    <Content Include="StaticContent\Scripts\MicrosoftMvcValidation.js" />
-    <Content Include="StaticContent\Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\Display\Latest.aspx" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
